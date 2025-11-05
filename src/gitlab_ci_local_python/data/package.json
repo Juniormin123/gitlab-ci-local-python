@@ -1,0 +1,12 @@
+{
+  "name": "gitlab-ci-local-python",
+  "version": "1.0.0",
+  "description": "Python package wrapper for gitlab-ci-local",
+  "scripts": {
+    "start": "gitlab-ci-local"
+  },
+  "private": true,
+  "dependencies": {
+    "gitlab-ci-local": "^4.63.0"
+  }
+}

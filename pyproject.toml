@@ -1,0 +1,59 @@
+[project]
+name = "gitlab-ci-local-python"
+version = "0.1.0"
+description = "Python wrapper for gitlab-ci-local"
+readme = "README.md"
+authors = [
+    { name = "Juniormin123", email = "min641366609@live.com" }
+]
+license = {text = "MIT"}
+requires-python = ">=3.10"
+keywords = ["gitlab", "ci", "local", "testing", "gitlab-ci"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Programming Language :: Python :: 3.14",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "nodejs-wheel>=22",
+]
+
+[dependency-groups]
+dev = [
+    "pyright>=1.1.407",
+    "ruff>=0.14.3",
+]
+
+[project.scripts]
+gitlab-ci-local-python = "gitlab_ci_local_python.__main__:cli_main"
+gcl-py = "gitlab_ci_local_python.__main__:cli_main"
+
+[build-system]
+requires = ["uv_build>=0.9.7,<0.10.0"]
+build-backend = "uv_build"
+
+[tool.uv.build-backend]
+source-include = [
+    "src/gitlab_ci_local_python/gitlab_ci_local/package.json",
+]
+wheel-include = [
+    "src/gitlab_ci_local_python/gitlab_ci_local/package.json",
+]
+
+[tool.pyright]
+exclude = [
+    "**/__pycache__",
+    "**/dist",
+    "**/build",
+]
+typeCheckingMode = "standard"
+
+[tool.ruff]
+line-length = 120
